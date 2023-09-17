@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.2",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "ALS",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"GameplayCameras",
+				"UMG",
+				"AIModule",
+				"GameplayTasks",
+				"NavigationSystem",
+				"AnimationBlueprintLibrary",
+				"AnimationModifiers",
+				"AnimGraphRuntime",
+				"ClothingSystemRuntimeNv"
+			]
+		}
+	]
+}
