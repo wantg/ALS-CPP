@@ -2,6 +2,8 @@
 
 Migrated code to C++, other assets unchaged
 
+UE 5.2.1
+
 |   |   |
 |---|---|
 | Original  | CPP Version  |
