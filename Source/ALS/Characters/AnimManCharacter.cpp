@@ -354,7 +354,7 @@ void AAnimManCharacter::AttachToHand(UStaticMesh* NewStaticMesh, USkeletalMesh* 
         SkeletalMesh->SetAnimInstanceClass(NewAnimClass);
     }
     HeldObjectRoot->AttachToComponent(GetMesh(), FAttachmentTransformRules{EAttachmentRule::SnapToTarget, true}, LeftHand ? FName("VB LHS_ik_hand_gun") : FName("VB RHS_ik_hand_gun"));
-    HeldObjectRoot->SetRelativeLocation(Offset, false, false);
+    HeldObjectRoot->SetRelativeLocation(Offset);
 }
 
 void AAnimManCharacter::UpdateHeldObjectAnimations() {
