@@ -1,9 +1,9 @@
-#include "ALS/Characters/BaseCharacter.h"
+#include "ALS/Characters/ALSBaseCharacter.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "ALS/Libraries/ALSMacroLibrary.h"
 
-void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
+void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
 
     // Movement Input
@@ -62,7 +62,7 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
             }
         }
     });
-    PlayerInputComponent->BindAction("JumpAction", IE_Released, this, &ABaseCharacter::StopJumping);
+    PlayerInputComponent->BindAction("JumpAction", IE_Released, this, &AALSBaseCharacter::StopJumping);
 
     // Stance Action: Press "Stance Action" to toggle Standing / Crouching, double tap to Roll.
     AddInputActionBindingLambda(PlayerInputComponent, "StanceAction", IE_Pressed, [this]() {
@@ -208,7 +208,7 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 // ================================================================================
 // Input
-void ABaseCharacter::PlayerMovementInput(bool IsForwardAxis) {
+void AALSBaseCharacter::PlayerMovementInput(bool IsForwardAxis) {
     FVector ControlForwardVector;
     FVector ControlRightVector;
     GetControlForwardRightVector(ControlForwardVector, ControlRightVector);
@@ -227,7 +227,7 @@ void ABaseCharacter::PlayerMovementInput(bool IsForwardAxis) {
     }
 }
 
-FVector ABaseCharacter::GetPlayerMovementInput() {
+FVector AALSBaseCharacter::GetPlayerMovementInput() {
     FVector ControlForwardVector;
     FVector ControlRightVector;
     GetControlForwardRightVector(ControlForwardVector, ControlRightVector);
@@ -237,14 +237,14 @@ FVector ABaseCharacter::GetPlayerMovementInput() {
         MoveForwardBackwardsScale * ControlForwardVector + MoveRightLeftScale * ControlRightVector, 0.0001f);
 }
 
-void ABaseCharacter::FixDiagonalGamepadValues(float InY, float InX, float& OutY, float& OutX) {
+void AALSBaseCharacter::FixDiagonalGamepadValues(float InY, float InX, float& OutY, float& OutX) {
     float RangeClampedX = UKismetMathLibrary::MapRangeClamped(FMath::Abs(InX), 0.0, 0.6, 1.0, 1.2);
     OutY = UKismetMathLibrary::FClamp(InY * RangeClampedX, -1.0, 1.0);
     float RangeClampedY = UKismetMathLibrary::MapRangeClamped(FMath::Abs(InY), 0.0, 0.6, 1.0, 1.2);
     OutX = UKismetMathLibrary::FClamp(InX * RangeClampedY, -1.0, 1.0);
 }
 
-void ABaseCharacter::PerformCameraAction(EInputEvent InputEvent) {
+void AALSBaseCharacter::PerformCameraAction(EInputEvent InputEvent) {
     APlayerController* PlayerController = Cast<APlayerController>(GetController());
     if (!PlayerController) {
         return;

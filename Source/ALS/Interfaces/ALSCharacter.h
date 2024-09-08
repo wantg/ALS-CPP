@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "ALS/Data/Enums.h"
+#include "ALS/Data/ALSEnums.h"
 #include "ALSCharacter.generated.h"
 
 UINTERFACE(MinimalAPI, NotBlueprintable)

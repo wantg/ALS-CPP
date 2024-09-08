@@ -1,4 +1,4 @@
-#include "ALS/Characters/BaseCharacter.h"
+#include "ALS/Characters/ALSBaseCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
@@ -10,7 +10,7 @@
 /*
  * Get Debug Info from Player Controller
  */
-void ABaseCharacter::DrawDebugShapes() {
+void AALSBaseCharacter::DrawDebugShapes() {
     APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
     if (IALSController* ALSController = Cast<IALSController>(PlayerController)) {
         // Get Debug Info from Player Controller
@@ -97,7 +97,7 @@ void ABaseCharacter::DrawDebugShapes() {
     }
 }
 
-TEnumAsByte<EDrawDebugTrace::Type> ABaseCharacter::GetTraceDebugType(TEnumAsByte<EDrawDebugTrace::Type> ShowTraceType) {
+TEnumAsByte<EDrawDebugTrace::Type> AALSBaseCharacter::GetTraceDebugType(TEnumAsByte<EDrawDebugTrace::Type> ShowTraceType) {
     if (IALSController* ALSController = Cast<IALSController>(UGameplayStatics::GetPlayerController(this, 0))) {
         ACharacter* DebugFocusCharacter;
         bool DebugView;

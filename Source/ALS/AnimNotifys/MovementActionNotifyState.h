@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimNotifies/AnimNotifyState.h"
-#include "ALS/Data/Enums.h"
+#include "ALS/Data/ALSEnums.h"
 #include "MovementActionNotifyState.generated.h"
 
 UCLASS()

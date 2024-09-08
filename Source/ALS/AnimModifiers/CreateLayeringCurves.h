@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "AnimationModifier.h"
-#include "ALS/Data/Structs.h"
+#include "ALS/Data/ALSStructs.h"
 #include "CreateLayeringCurves.generated.h"
 
 /**
@@ -22,5 +22,5 @@ class ALS_API UCreateLayeringCurves : public UAnimationModifier {
     FName Curve = "None";
     TArray<FName> CurvesToCreate;
     float DefaultValue = 1.f;
-    bool KeyEachFrame = true;
+    bool KeyEachFrame  = true;
 };

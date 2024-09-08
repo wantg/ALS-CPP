@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
-#include "ALS/Misc/SprintCameraShake.h"
+#include "ALS/Misc/ALSSprintCameraShake.h"
 #include "CameraShakeNotify.generated.h"
 
 UCLASS()
@@ -15,7 +15,7 @@ class ALS_API UCameraShakeNotify : public UAnimNotify {
 
    public:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    TSubclassOf<ULegacyCameraShake> ShakeClass = USprintCameraShake::StaticClass();
+    TSubclassOf<ULegacyCameraShake> ShakeClass = UALSSprintCameraShake::StaticClass();
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float Scale = 1.f;

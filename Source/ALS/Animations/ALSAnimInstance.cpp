@@ -12,52 +12,52 @@
 UALSAnimInstance::UALSAnimInstance() {
     // ================================================================================
     // Turn In Place
-    N_TurnIP_L90.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_L90"));
-    N_TurnIP_L90.AnimatedAngle = -90.f;
-    N_TurnIP_L90.SlotName = "(N) Turn/Rotate";
-    N_TurnIP_L90.PlayRate = 1.2f;
+    N_TurnIP_L90.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_L90"));
+    N_TurnIP_L90.AnimatedAngle  = -90.f;
+    N_TurnIP_L90.SlotName       = "(N) Turn/Rotate";
+    N_TurnIP_L90.PlayRate       = 1.2f;
     N_TurnIP_L90.ScaleTurnAngle = true;
 
-    N_TurnIP_R90.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_R90"));
-    N_TurnIP_R90.AnimatedAngle = 90.f;
-    N_TurnIP_R90.SlotName = "(N) Turn/Rotate";
-    N_TurnIP_R90.PlayRate = 1.2f;
+    N_TurnIP_R90.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_R90"));
+    N_TurnIP_R90.AnimatedAngle  = 90.f;
+    N_TurnIP_R90.SlotName       = "(N) Turn/Rotate";
+    N_TurnIP_R90.PlayRate       = 1.2f;
     N_TurnIP_R90.ScaleTurnAngle = true;
 
-    N_TurnIP_L180.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_L180"));
-    N_TurnIP_L180.AnimatedAngle = -180.f;
-    N_TurnIP_L180.SlotName = "(N) Turn/Rotate";
-    N_TurnIP_L180.PlayRate = 1.2f;
+    N_TurnIP_L180.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_L180"));
+    N_TurnIP_L180.AnimatedAngle  = -180.f;
+    N_TurnIP_L180.SlotName       = "(N) Turn/Rotate";
+    N_TurnIP_L180.PlayRate       = 1.2f;
     N_TurnIP_L180.ScaleTurnAngle = true;
 
-    N_TurnIP_R180.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_R180"));
-    N_TurnIP_R180.AnimatedAngle = 180.f;
-    N_TurnIP_R180.SlotName = "(N) Turn/Rotate";
-    N_TurnIP_R180.PlayRate = 1.2f;
+    N_TurnIP_R180.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_N_TurnIP_R180"));
+    N_TurnIP_R180.AnimatedAngle  = 180.f;
+    N_TurnIP_R180.SlotName       = "(N) Turn/Rotate";
+    N_TurnIP_R180.PlayRate       = 1.2f;
     N_TurnIP_R180.ScaleTurnAngle = true;
 
-    CLF_TurnIP_L90.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_L90"));
-    CLF_TurnIP_L90.AnimatedAngle = -90.f;
-    CLF_TurnIP_L90.SlotName = "(CLF) Turn/Rotate";
-    CLF_TurnIP_L90.PlayRate = 1.2f;
+    CLF_TurnIP_L90.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_L90"));
+    CLF_TurnIP_L90.AnimatedAngle  = -90.f;
+    CLF_TurnIP_L90.SlotName       = "(CLF) Turn/Rotate";
+    CLF_TurnIP_L90.PlayRate       = 1.2f;
     CLF_TurnIP_L90.ScaleTurnAngle = false;
 
-    CLF_TurnIP_R90.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_R90"));
-    CLF_TurnIP_R90.AnimatedAngle = 90.f;
-    CLF_TurnIP_R90.SlotName = "(CLF) Turn/Rotate";
-    CLF_TurnIP_R90.PlayRate = 1.2f;
+    CLF_TurnIP_R90.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_R90"));
+    CLF_TurnIP_R90.AnimatedAngle  = 90.f;
+    CLF_TurnIP_R90.SlotName       = "(CLF) Turn/Rotate";
+    CLF_TurnIP_R90.PlayRate       = 1.2f;
     CLF_TurnIP_R90.ScaleTurnAngle = false;
 
-    CLF_TurnIP_L180.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_L180"));
-    CLF_TurnIP_L180.AnimatedAngle = -180.f;
-    CLF_TurnIP_L180.SlotName = "(CLF) Turn/Rotate";
-    CLF_TurnIP_L180.PlayRate = 1.2f;
+    CLF_TurnIP_L180.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_L180"));
+    CLF_TurnIP_L180.AnimatedAngle  = -180.f;
+    CLF_TurnIP_L180.SlotName       = "(CLF) Turn/Rotate";
+    CLF_TurnIP_L180.PlayRate       = 1.2f;
     CLF_TurnIP_L180.ScaleTurnAngle = false;
 
-    CLF_TurnIP_R180.Animation = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_R180"));
-    CLF_TurnIP_R180.AnimatedAngle = 180.f;
-    CLF_TurnIP_R180.SlotName = "(CLF) Turn/Rotate";
-    CLF_TurnIP_R180.PlayRate = 1.2f;
+    CLF_TurnIP_R180.Animation      = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/TurnInPlace/ALS_CLF_TurnIP_R180"));
+    CLF_TurnIP_R180.AnimatedAngle  = 180.f;
+    CLF_TurnIP_R180.SlotName       = "(CLF) Turn/Rotate";
+    CLF_TurnIP_R180.PlayRate       = 1.2f;
     CLF_TurnIP_R180.ScaleTurnAngle = false;
 
     // ================================================================================
@@ -95,46 +95,46 @@ void UALSAnimInstance::NativeUpdateAnimation(float DeltaSeconds) {
         // Check Movement Mode
         bool PreviousShouldMove = ShouldMove;
         switch (MovementState) {
-            case EALSMovementState::EAMS_Grounded:
-                // Check If Moving Or Not
-                ShouldMove = ShouldMoveCheck();
-                // Do While Moving
-                if (ShouldMove) {
-                    UpdateMovementValues();
-                    UpdateRotationValues();
-                }
-                // Do While Not Moving
-                if (!ShouldMove) {
-                    if (CanRotateInPlace()) {
-                        RotateInPlaceCheck();
-                    } else {
-                        RotateL = false;
-                        RotateR = false;
-                    }
-                    if (CanTurnInPlace()) {
-                        TurnInPlaceCheck();
-                    } else {
-                        ElapsedDelayTime = 0.f;
-                    }
-                    if (CanDynamicTransition()) {
-                        DynamicTransitionCheck();
-                    }
-                }
-                // Do When Starting To Move
-                if (PreviousShouldMove == false && ShouldMove) {
-                    ElapsedDelayTime = 0.f;
+        case EALSMovementState::EAMS_Grounded:
+            // Check If Moving Or Not
+            ShouldMove = ShouldMoveCheck();
+            // Do While Moving
+            if (ShouldMove) {
+                UpdateMovementValues();
+                UpdateRotationValues();
+            }
+            // Do While Not Moving
+            if (!ShouldMove) {
+                if (CanRotateInPlace()) {
+                    RotateInPlaceCheck();
+                } else {
                     RotateL = false;
                     RotateR = false;
                 }
-                break;
-            case EALSMovementState::EAMS_InAir:
-                // Do While InAir
-                UpdateInAirValues();
-                break;
-            case EALSMovementState::EAMS_Ragdoll:
-                // Do While Ragdolling
-                UpdateRagdollValues();
-                break;
+                if (CanTurnInPlace()) {
+                    TurnInPlaceCheck();
+                } else {
+                    ElapsedDelayTime = 0.f;
+                }
+                if (CanDynamicTransition()) {
+                    DynamicTransitionCheck();
+                }
+            }
+            // Do When Starting To Move
+            if (PreviousShouldMove == false && ShouldMove) {
+                ElapsedDelayTime = 0.f;
+                RotateL          = false;
+                RotateR          = false;
+            }
+            break;
+        case EALSMovementState::EAMS_InAir:
+            // Do While InAir
+            UpdateInAirValues();
+            break;
+        case EALSMovementState::EAMS_Ragdoll:
+            // Do While Ragdolling
+            UpdateRagdollValues();
+            break;
         }
     }
 }
@@ -144,14 +144,14 @@ void UALSAnimInstance::NativeUpdateAnimation(float DeltaSeconds) {
  */
 void UALSAnimInstance::PlayTransition(FDynamicMontageParams MontageParams) {
     PlaySlotAnimationAsDynamicMontage(
-        MontageParams.Animation,     // UAnimSequenceBase* Asset
-        FName("Grounded Slot"),      // FName SlotNodeName
-        MontageParams.BlendInTime,   // float BlendInTime = 0.25f
-        MontageParams.BlendOutTime,  // float BlendOutTime = 0.25f
-        MontageParams.PlayRate,      // float InPlayRate = 1.f
-        1,                           // int32 LoopCount = 1
-        0.f,                         // float BlendOutTriggerTime = -1.f
-        MontageParams.StartTime      // float InTimeToStartMontageAt = 0.f
+        MontageParams.Animation,    // UAnimSequenceBase* Asset
+        FName("Grounded Slot"),     // FName SlotNodeName
+        MontageParams.BlendInTime,  // float BlendInTime = 0.25f
+        MontageParams.BlendOutTime, // float BlendOutTime = 0.25f
+        MontageParams.PlayRate,     // float InPlayRate = 1.f
+        1,                          // int32 LoopCount = 1
+        0.f,                        // float BlendOutTriggerTime = -1.f
+        MontageParams.StartTime     // float InTimeToStartMontageAt = 0.f
     );
 }
 
@@ -161,14 +161,14 @@ void UALSAnimInstance::PlayTransition(FDynamicMontageParams MontageParams) {
 void UALSAnimInstance::PlayDynamicTransition(float ReTriggerDelay, FDynamicMontageParams MontageParams) {
     if (PlayDynamicTransitionEnabled) {
         PlaySlotAnimationAsDynamicMontage(
-            MontageParams.Animation,     // UAnimSequenceBase* Asset
-            FName("Grounded Slot"),      // FName SlotNodeName
-            MontageParams.BlendInTime,   // float BlendInTime = 0.25f
-            MontageParams.BlendOutTime,  // float BlendOutTime = 0.25f
-            MontageParams.PlayRate,      // float InPlayRate = 1.f
-            1,                           // int32 LoopCount = 1
-            0.f,                         // float BlendOutTriggerTime = -1.f
-            MontageParams.StartTime      // float InTimeToStartMontageAt = 0.f
+            MontageParams.Animation,    // UAnimSequenceBase* Asset
+            FName("Grounded Slot"),     // FName SlotNodeName
+            MontageParams.BlendInTime,  // float BlendInTime = 0.25f
+            MontageParams.BlendOutTime, // float BlendOutTime = 0.25f
+            MontageParams.PlayRate,     // float InPlayRate = 1.f
+            1,                          // int32 LoopCount = 1
+            0.f,                        // float BlendOutTriggerTime = -1.f
+            MontageParams.StartTime     // float InTimeToStartMontageAt = 0.f
         );
         PlayDynamicTransitionEnabled = false;
         AddTimer([this]() { PlayDynamicTransitionEnabled = true; }, ReTriggerDelay, false);
@@ -197,9 +197,9 @@ void UALSAnimInstance::UpdateAimingValues() {
     SmoothedAimingRotation = UKismetMathLibrary::RInterpTo(SmoothedAimingRotation, AimingRotation, DeltaTimeX, SmoothedAimingRotationInterpSpeed);
 
     // Calculate the Aiming angle and Smoothed Aiming Angle by getting the delta between the aiming rotation and the actor rotation.
-    l_Rotation = UKismetMathLibrary::NormalizedDeltaRotator(AimingRotation, Character->GetActorRotation());
-    AimingAngle = FVector2D(l_Rotation.Yaw, l_Rotation.Pitch);
-    l_Rotation = UKismetMathLibrary::NormalizedDeltaRotator(SmoothedAimingRotation, Character->GetActorRotation());
+    l_Rotation          = UKismetMathLibrary::NormalizedDeltaRotator(AimingRotation, Character->GetActorRotation());
+    AimingAngle         = FVector2D(l_Rotation.Yaw, l_Rotation.Pitch);
+    l_Rotation          = UKismetMathLibrary::NormalizedDeltaRotator(SmoothedAimingRotation, Character->GetActorRotation());
     SmoothedAimingAngle = FVector2D(l_Rotation.Yaw, l_Rotation.Pitch);
 
     // Clamp the Aiming Pitch Angle to a range of 1 to 0 for use in the vertical aim sweeps.
@@ -229,9 +229,9 @@ void UALSAnimInstance::UpdateAimingValues() {
     // to improve the blending of the aim offset when rotating completely around the character.
     // This allows you to keep the aiming responsive but still smoothly blend from left to right or right to left.
     float SmoothedAimingAngleX = FMath::Abs(SmoothedAimingAngle.X);
-    LeftYawTime = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngleX, 0.f, 180.f, 0.5f, 0.f);
-    RightYawTime = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngleX, 0.f, 180.f, 0.5f, 1.f);
-    ForwardYawTime = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngle.X, -180.f, 180.f, 0.f, 1.f);
+    LeftYawTime                = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngleX, 0.f, 180.f, 0.5f, 0.f);
+    RightYawTime               = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngleX, 0.f, 180.f, 0.5f, 1.f);
+    ForwardYawTime             = UKismetMathLibrary::MapRangeClamped(SmoothedAimingAngle.X, -180.f, 180.f, 0.f, 1.f);
 }
 
 void UALSAnimInstance::UpdateLayerValues() {
@@ -239,12 +239,12 @@ void UALSAnimInstance::UpdateLayerValues() {
     EnableAimOffset = UKismetMathLibrary::Lerp(1.f, 0.f, GetCurveValue(FName("Mask_AimOffset")));
 
     // Set the Base Pose weights
-    BasePose_N = GetCurveValue(FName("BasePose_N"));
+    BasePose_N   = GetCurveValue(FName("BasePose_N"));
     BasePose_CLF = GetCurveValue(FName("BasePose_CLF"));
 
     // Set the Additive amount weights for each body part
-    SpineAdd = GetCurveValue(FName("Layering_Spine_Add"));
-    HeadAdd = GetCurveValue(FName("Layering_Head_Add"));
+    SpineAdd  = GetCurveValue(FName("Layering_Spine_Add"));
+    HeadAdd   = GetCurveValue(FName("Layering_Head_Add"));
     Arm_L_Add = GetCurveValue(FName("Layering_Arm_L_Add"));
     Arm_R_Add = GetCurveValue(FName("Layering_Arm_R_Add"));
 
@@ -272,19 +272,19 @@ void UALSAnimInstance::UpdateFootIK() {
     FVector FootOffset_L_Target = FVector::ZeroVector;
     FVector FootOffset_R_Target = FVector::ZeroVector;
     switch (MovementState) {
-        case EALSMovementState::EAMS_None:
-        case EALSMovementState::EAMS_Grounded:
-        case EALSMovementState::EAMS_Mantling:
-            // Update all Foot Lock and Foot Offset values when not In Air
-            SetFootOffsets(FName("Enable_FootIK_L"), FName("ik_foot_l"), FName("root"), FootOffset_L_Target, FootOffset_L_Location, FootOffset_L_Rotation);
-            SetFootOffsets(FName("Enable_FootIK_R"), FName("ik_foot_r"), FName("root"), FootOffset_R_Target, FootOffset_R_Location, FootOffset_R_Rotation);
-            SetPelvisIKOffset(FootOffset_L_Target, FootOffset_R_Target);
-            break;
-        case EALSMovementState::EAMS_InAir:
-            // Reset IK Offsets if In Air
-            SetPelvisIKOffset(FVector::ZeroVector, FVector::ZeroVector);
-            ResetIKOffsets();
-            break;
+    case EALSMovementState::EAMS_None:
+    case EALSMovementState::EAMS_Grounded:
+    case EALSMovementState::EAMS_Mantling:
+        // Update all Foot Lock and Foot Offset values when not In Air
+        SetFootOffsets(FName("Enable_FootIK_L"), FName("ik_foot_l"), FName("root"), FootOffset_L_Target, FootOffset_L_Location, FootOffset_L_Rotation);
+        SetFootOffsets(FName("Enable_FootIK_R"), FName("ik_foot_r"), FName("root"), FootOffset_R_Target, FootOffset_R_Location, FootOffset_R_Rotation);
+        SetPelvisIKOffset(FootOffset_L_Target, FootOffset_R_Target);
+        break;
+    case EALSMovementState::EAMS_InAir:
+        // Reset IK Offsets if In Air
+        SetPelvisIKOffset(FVector::ZeroVector, FVector::ZeroVector);
+        ResetIKOffsets();
+        break;
     }
 }
 
@@ -305,7 +305,7 @@ void UALSAnimInstance::UpdateMovementValues() {
     // Set the Stride Blend
     StrideBlend = CalculateStrideBlend();
     // Set the Standing and Crouching Play Rates
-    StandingPlayRate = CalculateStandingPlayRate();
+    StandingPlayRate  = CalculateStandingPlayRate();
     CrouchingPlayRate = CalculateCrouchingPlayRate();
 }
 
@@ -316,13 +316,13 @@ void UALSAnimInstance::UpdateRotationValues() {
     // Set the Yaw Offsets.
     // These values influence the "YawOffset" curve in the animgraph and are used to offset the characters rotation for more natural movement.
     // The curves allow for fine control over how the offset behaves for each movement direction.
-    float l_Yaw = UKismetMathLibrary::NormalizedDeltaRotator(Velocity.ToOrientationRotator(), Character->GetControlRotation()).Yaw;
+    float l_Yaw           = UKismetMathLibrary::NormalizedDeltaRotator(Velocity.ToOrientationRotator(), Character->GetControlRotation()).Yaw;
     FVector l_YawOffsetFB = YawOffset_FB->GetVectorValue(l_Yaw);
     FVector l_YawOffsetLR = YawOffset_LR->GetVectorValue(l_Yaw);
-    FYaw = l_YawOffsetFB.X;
-    BYaw = l_YawOffsetFB.Y;
-    LYaw = l_YawOffsetLR.X;
-    RYaw = l_YawOffsetLR.Y;
+    FYaw                  = l_YawOffsetFB.X;
+    BYaw                  = l_YawOffsetFB.Y;
+    LYaw                  = l_YawOffsetLR.X;
+    RYaw                  = l_YawOffsetLR.Y;
 }
 
 void UALSAnimInstance::UpdateInAirValues() {
@@ -336,7 +336,7 @@ void UALSAnimInstance::UpdateInAirValues() {
 
     // Interp and set the In Air Lean Amount
     FLeanAmount l_LeanAmount = CalculateInAirLeanAmount();
-    LeanAmount = InterpLeanAmount(LeanAmount, l_LeanAmount, InAirLeanInterpSpeed, DeltaTimeX);
+    LeanAmount               = InterpLeanAmount(LeanAmount, l_LeanAmount, InAirLeanInterpSpeed, DeltaTimeX);
 }
 
 /*
@@ -488,31 +488,31 @@ void UALSAnimInstance::RotateInPlaceCheck() {
  */
 void UALSAnimInstance::DynamicTransitionCheck() {
     if (UKismetAnimationLibrary::K2_DistanceBetweenTwoSocketsAndMapRange(
-            GetOwningComponent(),                    // const USkeletalMeshComponent* Component
-            FName("ik_foot_l"),                      // const FName SocketOrBoneNameA
-            ERelativeTransformSpace::RTS_Component,  // ERelativeTransformSpace SocketSpaceA
-            FName("VB foot_target_l"),               // const FName SocketOrBoneNameB
-            ERelativeTransformSpace::RTS_Component,  // ERelativeTransformSpace SocketSpaceB
-            false,                                   // bool bRemapRange
-            0.f,                                     // float InRangeMin
-            0.f,                                     // float InRangeMax
-            0.f,                                     // float OutRangeMin
-            0.f                                      // float OutRangeMax
+            GetOwningComponent(),                   // const USkeletalMeshComponent* Component
+            FName("ik_foot_l"),                     // const FName SocketOrBoneNameA
+            ERelativeTransformSpace::RTS_Component, // ERelativeTransformSpace SocketSpaceA
+            FName("VB foot_target_l"),              // const FName SocketOrBoneNameB
+            ERelativeTransformSpace::RTS_Component, // ERelativeTransformSpace SocketSpaceB
+            false,                                  // bool bRemapRange
+            0.f,                                    // float InRangeMin
+            0.f,                                    // float InRangeMax
+            0.f,                                    // float OutRangeMin
+            0.f                                     // float OutRangeMax
             ) > 8.f) {
         UAnimSequence* AnimMontage = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/Transitions/ALS_N_Transition_R"));
         PlayDynamicTransition(0.1f, FDynamicMontageParams{AnimMontage, 0.2f, 0.2f, 1.5f, 0.8f});
     }
     if (UKismetAnimationLibrary::K2_DistanceBetweenTwoSocketsAndMapRange(
-            GetOwningComponent(),                    // const USkeletalMeshComponent* Component
-            FName("ik_foot_r"),                      // const FName SocketOrBoneNameA
-            ERelativeTransformSpace::RTS_Component,  // ERelativeTransformSpace SocketSpaceA
-            FName("VB foot_target_r"),               // const FName SocketOrBoneNameB
-            ERelativeTransformSpace::RTS_Component,  // ERelativeTransformSpace SocketSpaceB
-            false,                                   // bool bRemapRange
-            0.f,                                     // float InRangeMin
-            0.f,                                     // float InRangeMax
-            0.f,                                     // float OutRangeMin
-            0.f                                      // float OutRangeMax
+            GetOwningComponent(),                   // const USkeletalMeshComponent* Component
+            FName("ik_foot_r"),                     // const FName SocketOrBoneNameA
+            ERelativeTransformSpace::RTS_Component, // ERelativeTransformSpace SocketSpaceA
+            FName("VB foot_target_r"),              // const FName SocketOrBoneNameB
+            ERelativeTransformSpace::RTS_Component, // ERelativeTransformSpace SocketSpaceB
+            false,                                  // bool bRemapRange
+            0.f,                                    // float InRangeMin
+            0.f,                                    // float InRangeMax
+            0.f,                                    // float OutRangeMin
+            0.f                                     // float OutRangeMax
             ) > 8.f) {
         UAnimSequence* AnimMontage = LoadObject<UAnimSequence>(nullptr, TEXT("/Game/AdvancedLocomotionV4/CharacterAssets/MannequinSkeleton/AnimationExamples/Base/Transitions/ALS_N_Transition_L"));
         PlayDynamicTransition(0.1f, FDynamicMontageParams{AnimMontage, 0.2f, 0.2f, 1.5f, 0.8f});
@@ -641,27 +641,27 @@ float UALSAnimInstance::CalculateCrouchingPlayRate() {
 float UALSAnimInstance::CalculateLandPrediction() {
     if (FallSpeed < 200.f) {
         UCapsuleComponent* CapsuleComponent = Character->GetCapsuleComponent();
-        FVector Start = CapsuleComponent->GetComponentLocation();
-        FVector l_Vector = UKismetMathLibrary::Vector_NormalUnsafe(
+        FVector Start                       = CapsuleComponent->GetComponentLocation();
+        FVector l_Vector                    = UKismetMathLibrary::Vector_NormalUnsafe(
             FVector{Velocity.X, Velocity.Y, UKismetMathLibrary::FClamp(Velocity.Z, -4000.f, -200.f)});
         FVector End = Start + l_Vector * UKismetMathLibrary::MapRangeClamped(Velocity.Z, 0.f, -4000.f, 50.f, 2000.f);
         const TArray<AActor*> ActorsToIgnore;
         FHitResult OutHit;
         UKismetSystemLibrary::CapsuleTraceSingleByProfile(
-            this,                                                   // const UObject* WorldContextObject
-            Start,                                                  // const FVector Start
-            End,                                                    // const FVector End
-            CapsuleComponent->GetUnscaledCapsuleRadius(),           // float Radius
-            CapsuleComponent->GetUnscaledCapsuleHalfHeight(),       // float HalfHeight
-            FName("ALS_Character"),                                 // FName ProfileName
-            false,                                                  // bool bTraceComplex
-            ActorsToIgnore,                                         // const TArray<AActor*>& ActorsToIgnore
-            GetDebugTraceType(EDrawDebugTrace::Type::ForOneFrame),  // EDrawDebugTrace::Type DrawDebugType
-            OutHit,                                                 // FHitResult& OutHit
-            true,                                                   // bool bIgnoreSelf
-            FLinearColor::Red,                                      // FLinearColor TraceColor = FLinearColor::Red
-            FLinearColor::Green,                                    // FLinearColor TraceHitColor = FLinearColor::Green
-            5.f                                                     // float DrawTime = 5.0f
+            this,                                                  // const UObject* WorldContextObject
+            Start,                                                 // const FVector Start
+            End,                                                   // const FVector End
+            CapsuleComponent->GetUnscaledCapsuleRadius(),          // float Radius
+            CapsuleComponent->GetUnscaledCapsuleHalfHeight(),      // float HalfHeight
+            FName("ALS_Character"),                                // FName ProfileName
+            false,                                                 // bool bTraceComplex
+            ActorsToIgnore,                                        // const TArray<AActor*>& ActorsToIgnore
+            GetDebugTraceType(EDrawDebugTrace::Type::ForOneFrame), // EDrawDebugTrace::Type DrawDebugType
+            OutHit,                                                // FHitResult& OutHit
+            true,                                                  // bool bIgnoreSelf
+            FLinearColor::Red,                                     // FLinearColor TraceColor = FLinearColor::Red
+            FLinearColor::Green,                                   // FLinearColor TraceHitColor = FLinearColor::Green
+            5.f                                                    // float DrawTime = 5.0f
         );
         if (Character->GetCharacterMovement()->IsWalkable(OutHit) && OutHit.bBlockingHit) {
             return UKismetMathLibrary::Lerp(
@@ -677,7 +677,7 @@ float UALSAnimInstance::CalculateLandPrediction() {
  * to smoothly reverse the leaning direction when transitioning from moving upwards to moving downwards.
  */
 FLeanAmount UALSAnimInstance::CalculateInAirLeanAmount() {
-    FVector Vector = UKismetMathLibrary::LessLess_VectorRotator(Velocity, Character->GetActorRotation()) / 350.f;
+    FVector Vector     = UKismetMathLibrary::LessLess_VectorRotator(Velocity, Character->GetActorRotation()) / 350.f;
     FVector2D Vector2D = FVector2D{Vector.Y, Vector.X} * LeanInAirCurve->GetFloatValue(FallSpeed);
     return FLeanAmount{(float)Vector2D.X, (float)Vector2D.Y};
 }
@@ -692,26 +692,26 @@ void UALSAnimInstance::SetFootOffsets(FName Enable_FootIK_Curve, FName IKFootBon
         // Step 1: Trace downward from the foot location to find the geometry.
         // If the surface is walkable, save the Impact Location and Normal.
         FVector l_IKFootBoneLocation = GetOwningComponent()->GetSocketLocation(IKFootBone);
-        FVector l_RootBoneLocation = GetOwningComponent()->GetSocketLocation(RootBone);
-        FVector IKFootFloorLocation = FVector{l_IKFootBoneLocation.X, l_IKFootBoneLocation.Y, l_RootBoneLocation.Z};
+        FVector l_RootBoneLocation   = GetOwningComponent()->GetSocketLocation(RootBone);
+        FVector IKFootFloorLocation  = FVector{l_IKFootBoneLocation.X, l_IKFootBoneLocation.Y, l_RootBoneLocation.Z};
         const TArray<AActor*> ActorsToIgnore;
         FHitResult OutHit;
         UKismetSystemLibrary::LineTraceSingle(
-            this,                                                                 // const UObject* WorldContextObject
-            IKFootFloorLocation + FVector{0.f, 0.f, IKTraceDistanceAboveFoot},    // const FVector Start
-            IKFootFloorLocation - FVector{0.f, 0.f, IKTraceDistanceBelowFoot},    // const FVector End
-            UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility),  // ETraceTypeQuery TraceChannel
-            false,                                                                // bool bTraceComplex
-            ActorsToIgnore,                                                       // const TArray<AActor*>& ActorsToIgnore
-            GetDebugTraceType(EDrawDebugTrace::Type::ForOneFrame),                // EDrawDebugTrace::Type DrawDebugType
-            OutHit,                                                               // FHitResult& OutHit
-            true,                                                                 // bool bIgnoreSelf
-            FLinearColor::Red,                                                    // FLinearColor TraceColor = FLinearColor::Red
-            FLinearColor::Green,                                                  // FLinearColor TraceHitColor = FLinearColor::Green
-            5.0f                                                                  // float DrawTime = 5.0f
+            this,                                                                // const UObject* WorldContextObject
+            IKFootFloorLocation + FVector{0.f, 0.f, IKTraceDistanceAboveFoot},   // const FVector Start
+            IKFootFloorLocation - FVector{0.f, 0.f, IKTraceDistanceBelowFoot},   // const FVector End
+            UEngineTypes::ConvertToTraceType(ECollisionChannel::ECC_Visibility), // ETraceTypeQuery TraceChannel
+            false,                                                               // bool bTraceComplex
+            ActorsToIgnore,                                                      // const TArray<AActor*>& ActorsToIgnore
+            GetDebugTraceType(EDrawDebugTrace::Type::ForOneFrame),               // EDrawDebugTrace::Type DrawDebugType
+            OutHit,                                                              // FHitResult& OutHit
+            true,                                                                // bool bIgnoreSelf
+            FLinearColor::Red,                                                   // FLinearColor TraceColor = FLinearColor::Red
+            FLinearColor::Green,                                                 // FLinearColor TraceHitColor = FLinearColor::Green
+            5.0f                                                                 // float DrawTime = 5.0f
         );
         if (Character->GetCharacterMovement()->IsWalkable(OutHit)) {
-            FVector ImpactPoint = OutHit.ImpactPoint;
+            FVector ImpactPoint  = OutHit.ImpactPoint;
             FVector ImpactNormal = OutHit.ImpactNormal;
             // Step 1.1: Find the difference in location from the Impact point and the expected (flat) floor location.
             // These values are offset by the nomrmal multiplied by the foot height to get better behavior on angled surfaces.
@@ -771,8 +771,8 @@ void UALSAnimInstance::SetFootLocking(FName Enable_FootIK_Curve, FName FootLockC
         // Step 3: If the Foot Lock curve equals 1, save the new lock location and rotation in component space.
         if (CurrentFootLockAlpha >= 0.99f) {
             FTransform l_IKFootBoneTransform = GetOwningComponent()->GetSocketTransform(FName(IKFootBone), ERelativeTransformSpace::RTS_Component);
-            CurrentFootLockLocation = l_IKFootBoneTransform.GetLocation();
-            CurrentFootLockRotation = l_IKFootBoneTransform.GetRotation().Rotator();
+            CurrentFootLockLocation          = l_IKFootBoneTransform.GetLocation();
+            CurrentFootLockRotation          = l_IKFootBoneTransform.GetRotation().Rotator();
         }
 
         // Step 4: If the Foot Lock Alpha has a weight,
@@ -815,21 +815,21 @@ void UALSAnimInstance::SetFootLockOffsets(FVector& LocalLocation, FRotator& Loca
  */
 EMovementDirection UALSAnimInstance::CalculateMovementDirection() {
     switch (Gait) {
-        case EALSGait::EAG_Walking:
-        case EALSGait::EAG_Running:
-            switch (RotationMode) {
-                case EALSRotationMode::EARM_VelocityDirection:
-                    return EMovementDirection::EMD_Forward;
-                case EALSRotationMode::EARM_LookingDirection:
-                case EALSRotationMode::EARM_Aiming:
-                    return CalculateQuadrant(
-                        MovementDirection, 70.f, -70.f, 110.f, -110.f, 5.f,
-                        UKismetMathLibrary::NormalizedDeltaRotator(Velocity.ToOrientationRotator(), AimingRotation).Yaw);
-            }
-            break;
-
-        case EALSGait::EAG_Sprinting:
+    case EALSGait::EAG_Walking:
+    case EALSGait::EAG_Running:
+        switch (RotationMode) {
+        case EALSRotationMode::EARM_VelocityDirection:
             return EMovementDirection::EMD_Forward;
+        case EALSRotationMode::EARM_LookingDirection:
+        case EALSRotationMode::EARM_Aiming:
+            return CalculateQuadrant(
+                MovementDirection, 70.f, -70.f, 110.f, -110.f, 5.f,
+                UKismetMathLibrary::NormalizedDeltaRotator(Velocity.ToOrientationRotator(), AimingRotation).Yaw);
+        }
+        break;
+
+    case EALSGait::EAG_Sprinting:
+        return EMovementDirection::EMD_Forward;
     }
     return EMovementDirection::EMD_Forward;
 }
@@ -900,7 +900,7 @@ EDrawDebugTrace::Type UALSAnimInstance::GetDebugTraceType(EDrawDebugTrace::Type 
  */
 void UALSAnimInstance::ResetIKOffsets() {
     FootOffset_L_Location = UKismetMathLibrary::VInterpTo(FootOffset_L_Location, FVector::ZeroVector, DeltaTimeX, 15.f);
-    FootLock_R_Location = UKismetMathLibrary::VInterpTo(FootLock_R_Location, FVector::ZeroVector, DeltaTimeX, 15.f);
+    FootLock_R_Location   = UKismetMathLibrary::VInterpTo(FootLock_R_Location, FVector::ZeroVector, DeltaTimeX, 15.f);
     FootOffset_L_Rotation = UKismetMathLibrary::RInterpTo(FootOffset_L_Rotation, FRotator::ZeroRotator, DeltaTimeX, 15.f);
     FootOffset_L_Rotation = UKismetMathLibrary::RInterpTo(FootOffset_L_Rotation, FRotator::ZeroRotator, DeltaTimeX, 15.f);
 }

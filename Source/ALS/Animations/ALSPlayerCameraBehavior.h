@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
-#include "ALS/Data/Enums.h"
+#include "ALS/Data/ALSEnums.h"
 #include "ALSPlayerCameraBehavior.generated.h"
 
 UCLASS()

@@ -1,6 +1,6 @@
 #include "ALS/Controllers/ALSPlayerController.h"
 #include "ALS/CameraSystem/ALSPlayerCameraManager.h"
-#include "ALS/Characters/AnimManCharacter.h"
+#include "ALS/Characters/ALSAnimManCharacter.h"
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/Character.h"
@@ -21,7 +21,7 @@ void AALSPlayerController::BeginPlay() {
 
     // Search for all ALS Characters and populate array. Used to switch target character when viewing character info in the HUD
     TArray<AActor*> OutActors;
-    UGameplayStatics::GetAllActorsOfClass(this, AAnimManCharacter::StaticClass(), OutActors);
+    UGameplayStatics::GetAllActorsOfClass(this, AALSAnimManCharacter::StaticClass(), OutActors);
     for (AActor* i : OutActors) {
         if (ACharacter* L_Character = Cast<ACharacter>(i)) {
             AvailableDebugCharacters.Add(L_Character);

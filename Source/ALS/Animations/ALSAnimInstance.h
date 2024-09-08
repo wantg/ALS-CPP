@@ -3,8 +3,8 @@
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
 #include "ALS/Interfaces/ALSAnimation.h"
-#include "ALS/Data/Enums.h"
-#include "ALS/Data/Structs.h"
+#include "ALS/Data/ALSEnums.h"
+#include "ALS/Data/ALSStructs.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "ALS/Libraries/ALSMacroLibrary.h"
@@ -29,7 +29,7 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
 
     // Jumped
     virtual void Jumped() override {
-        IsJumped = true;
+        IsJumped     = true;
         JumpPlayRate = UKismetMathLibrary::MapRangeClamped(Speed, 0.f, 600.f, 1.2f, 1.5f);
         AddTimer([this]() { IsJumped = false; }, 0.1f, false);
     }
@@ -114,11 +114,11 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
     float DeltaTimeX = 0.f;
     // ================================================================================
     // Character Information
-    FRotator AimingRotation = FRotator::ZeroRotator;
-    FVector Velocity = FVector::ZeroVector;
+    FRotator AimingRotation           = FRotator::ZeroRotator;
+    FVector Velocity                  = FVector::ZeroVector;
     FVector RelativeVelocityDirection = FVector::ZeroVector;
-    FVector Acceleration = FVector::ZeroVector;
-    FVector MovementInput = FVector::ZeroVector;
+    FVector Acceleration              = FVector::ZeroVector;
+    FVector MovementInput             = FVector::ZeroVector;
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Information")
     bool IsMoving = false;
@@ -130,8 +130,8 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
     float Speed = 0.f;
 
     float MovementInputAmount = 0.f;
-    float AimYawRate = 0.f;
-    float ZoomAmount = 0.f;
+    float AimYawRate          = 0.f;
+    float ZoomAmount          = 0.f;
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Character Information")
     EALSMovementState MovementState = EALSMovementState::EAMS_None;
@@ -308,11 +308,11 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Anim Graph - Layer Blending")
     float Hand_R = 0.f;
 
-    float Legs = 0.f;
-    float LegsAdd = 0.f;
-    float Pelvis = 0.f;
+    float Legs      = 0.f;
+    float LegsAdd   = 0.f;
+    float Pelvis    = 0.f;
     float PelvisAdd = 0.f;
-    float Spine = 0.f;
+    float Spine     = 0.f;
 
     UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Anim Graph - Layer Blending")
     float SpineAdd = 0.f;
@@ -368,18 +368,18 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
 
     // ================================================================================
     // Turn In Place
-    float TurnCheckMinAngle = 45.f;
-    float Turn180Threshold = 130.f;
-    float AimYawRateLimit = 50.f;
-    float ElapsedDelayTime = 0.f;
-    float MinAngleDelay = 0.75f;
-    float MaxAngleDelay = 0.f;
-    FTurnInPlaceAsset N_TurnIP_L90 = FTurnInPlaceAsset{};
-    FTurnInPlaceAsset N_TurnIP_R90 = FTurnInPlaceAsset{};
-    FTurnInPlaceAsset N_TurnIP_L180 = FTurnInPlaceAsset{};
-    FTurnInPlaceAsset N_TurnIP_R180 = FTurnInPlaceAsset{};
-    FTurnInPlaceAsset CLF_TurnIP_L90 = FTurnInPlaceAsset{};
-    FTurnInPlaceAsset CLF_TurnIP_R90 = FTurnInPlaceAsset{};
+    float TurnCheckMinAngle           = 45.f;
+    float Turn180Threshold            = 130.f;
+    float AimYawRateLimit             = 50.f;
+    float ElapsedDelayTime            = 0.f;
+    float MinAngleDelay               = 0.75f;
+    float MaxAngleDelay               = 0.f;
+    FTurnInPlaceAsset N_TurnIP_L90    = FTurnInPlaceAsset{};
+    FTurnInPlaceAsset N_TurnIP_R90    = FTurnInPlaceAsset{};
+    FTurnInPlaceAsset N_TurnIP_L180   = FTurnInPlaceAsset{};
+    FTurnInPlaceAsset N_TurnIP_R180   = FTurnInPlaceAsset{};
+    FTurnInPlaceAsset CLF_TurnIP_L90  = FTurnInPlaceAsset{};
+    FTurnInPlaceAsset CLF_TurnIP_R90  = FTurnInPlaceAsset{};
     FTurnInPlaceAsset CLF_TurnIP_L180 = FTurnInPlaceAsset{};
     FTurnInPlaceAsset CLF_TurnIP_R180 = FTurnInPlaceAsset{};
 
@@ -389,8 +389,8 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
     float RotateMaxThreshold = 50.f;
     float AimYawRateMinRange = 90.f;
     float AimYawRateMaxRange = 270.f;
-    float MinPlayRate = 1.15f;
-    float MaxPlayRate = 3.f;
+    float MinPlayRate        = 1.15f;
+    float MaxPlayRate        = 3.f;
 
     // ================================================================================
     // Blend Curves
@@ -405,19 +405,19 @@ class ALS_API UALSAnimInstance : public UAnimInstance, public IALSAnimation {
 
     // ================================================================================
     // Config
-    float AnimatedWalkSpeed = 150.f;
-    float AnimatedRunSpeed = 350.f;
-    float AnimatedSprintSpeed = 600.f;
-    float AnimatedCrouchSpeed = 150.f;
-    float VelocityBlendInterpSpeed = 12.f;
-    float GroundedLeanInterpSpeed = 4.f;
-    float InAirLeanInterpSpeed = 4.f;
+    float AnimatedWalkSpeed                 = 150.f;
+    float AnimatedRunSpeed                  = 350.f;
+    float AnimatedSprintSpeed               = 600.f;
+    float AnimatedCrouchSpeed               = 150.f;
+    float VelocityBlendInterpSpeed          = 12.f;
+    float GroundedLeanInterpSpeed           = 4.f;
+    float InAirLeanInterpSpeed              = 4.f;
     float SmoothedAimingRotationInterpSpeed = 10.f;
-    float InputYawOffsetInterpSpeed = 8.f;
-    float TriggerPivotSpeedLimit = 200.f;
-    float FootHeight = 13.5f;
-    float IKTraceDistanceAboveFoot = 50.f;
-    float IKTraceDistanceBelowFoot = 45.f;
+    float InputYawOffsetInterpSpeed         = 8.f;
+    float TriggerPivotSpeedLimit            = 200.f;
+    float FootHeight                        = 13.5f;
+    float IKTraceDistanceAboveFoot          = 50.f;
+    float IKTraceDistanceBelowFoot          = 45.f;
 
    private:
     bool PlayDynamicTransitionEnabled = true;

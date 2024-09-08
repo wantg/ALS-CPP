@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimNotifies/AnimNotify.h"
-#include "ALS/Data/Enums.h"
+#include "ALS/Data/ALSEnums.h"
 #include "GroundedEntryStateNotify.generated.h"
 
 UCLASS()

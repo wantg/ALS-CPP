@@ -8,7 +8,7 @@
 
 AALSPlayerCameraManager::AALSPlayerCameraManager() {
     AutoReceiveInput = EAutoReceiveInput::Type::Player0;
-    CameraBehavior = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CameraBehavior"));
+    CameraBehavior   = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("CameraBehavior"));
     CameraBehavior->SetSkeletalMeshAsset(LoadObject<USkeletalMesh>(nullptr, TEXT("/Game/AdvancedLocomotionV4/Blueprints/CameraSystem/Camera")));
     CameraBehavior->SetMaterial(0, LoadObject<UMaterial>(nullptr, TEXT("/Engine/BasicShapes/BasicShapeMaterial")));
     CameraBehavior->SetMaterial(1, LoadObject<UMaterial>(nullptr, TEXT("/Engine/BasicShapes/BasicShapeMaterial")));
@@ -25,7 +25,7 @@ void AALSPlayerCameraManager::OnPossess(APawn* NewPawn) {
     // Updated references in the Camera Behavior AnimBP.
     if (UALSPlayerCameraBehavior* ALSPlayerCameraBehavior = Cast<UALSPlayerCameraBehavior>(CameraBehavior->GetAnimInstance())) {
         ALSPlayerCameraBehavior->PlayerController = GetOwningPlayerController();
-        ALSPlayerCameraBehavior->ControlledPawn = ControlledPawn;
+        ALSPlayerCameraBehavior->ControlledPawn   = ControlledPawn;
     }
 }
 
@@ -50,7 +50,7 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
     // Step 1: Get Camera Parameters from CharacterBP via the Camera Interface
     if (IALSCamera* ALSCamera = Cast<IALSCamera>(ControlledPawn)) {
         PivotTarget = ALSCamera->Get3PPivotTarget();
-        FPTarget = ALSCamera->GetFPCameraTarget();
+        FPTarget    = ALSCamera->GetFPCameraTarget();
         bool RightShoulder;
         ALSCamera->GetCameraParameters(TPFOV, FPFOV, RightShoulder);
     }
@@ -66,8 +66,8 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
 
     // Step 3: Calculate the Smoothed Pivot Target (Orange Sphere).
     // Get the 3P Pivot Target (Green Sphere) and interpolate using axis independent lag for maximum control.
-    FVector LagSpeeds = FVector{GetCameraBehaviorParam(FName("PivotLagSpeed_X")), GetCameraBehaviorParam(FName("PivotLagSpeed_Y")), GetCameraBehaviorParam(FName("PivotLagSpeed_Z"))};
-    FVector L_Location = CalculateAxisIndependentLag(SmoothedPivotTarget.GetLocation(), PivotTarget.GetLocation(), TargetCameraRotation, LagSpeeds);
+    FVector LagSpeeds   = FVector{GetCameraBehaviorParam(FName("PivotLagSpeed_X")), GetCameraBehaviorParam(FName("PivotLagSpeed_Y")), GetCameraBehaviorParam(FName("PivotLagSpeed_Z"))};
+    FVector L_Location  = CalculateAxisIndependentLag(SmoothedPivotTarget.GetLocation(), PivotTarget.GetLocation(), TargetCameraRotation, LagSpeeds);
     SmoothedPivotTarget = FTransform{PivotTarget.GetRotation().Rotator(), L_Location, FVector{1.f}};
 
     // Step 4: Calculate Pivot Location (BlueSphere).
@@ -98,19 +98,19 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
         TArray<AActor*> ActorsToIgnore;
         FHitResult OutHit;
         UKismetSystemLibrary::SphereTraceSingle(
-            this,                  // const UObject* WorldContextObject
-            TraceOrigin,           // const FVector Start
-            TargetCameraLocation,  // const FVector End
-            TraceRadius,           // float Radius
-            TraceChannel,          // ETraceTypeQuery TraceChannel
-            false,                 // bool bTraceComplex
-            ActorsToIgnore,        // const TArray<AActor*>& ActorsToIgnore
-            DebugType,             // EDrawDebugTrace::Type DrawDebugType
-            OutHit,                // FHitResult& OutHit
-            true                   // bool bIgnoreSelf
-                                   // FLinearColor TraceColor = FLinearColor::Red
-                                   // FLinearColor TraceHitColor = FLinearColor::Green
-                                   // float DrawTime = 5.0f
+            this,                 // const UObject* WorldContextObject
+            TraceOrigin,          // const FVector Start
+            TargetCameraLocation, // const FVector End
+            TraceRadius,          // float Radius
+            TraceChannel,         // ETraceTypeQuery TraceChannel
+            false,                // bool bTraceComplex
+            ActorsToIgnore,       // const TArray<AActor*>& ActorsToIgnore
+            DebugType,            // EDrawDebugTrace::Type DrawDebugType
+            OutHit,               // FHitResult& OutHit
+            true                  // bool bIgnoreSelf
+                                  // FLinearColor TraceColor = FLinearColor::Red
+                                  // FLinearColor TraceHitColor = FLinearColor::Green
+                                  // float DrawTime = 5.0f
         );
 
         if (OutHit.bBlockingHit && !OutHit.bStartPenetrating) {
@@ -131,47 +131,47 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
         ALSController->GetDebugInfo(DebugFocusCharacter, DebugView, ShowHUD, ShowTraces, ShowDebugShapes, ShowLayerColors, Slomo, ShowCharacterInfo);
         if (ShowDebugShapes) {
             UKismetSystemLibrary::DrawDebugSphere(
-                this,                       // const UObject* WorldContextObject
-                PivotTarget.GetLocation(),  // const FVector Center
-                16.f,                       // float Radius=100.f
-                8,                          // int32 Segments=12
-                FLinearColor::Green,        // FLinearColor LineColor = FLinearColor::White
-                0.f,                        // float Duration=0.f
-                0.5f                        // float Thickness = 0.f
+                this,                      // const UObject* WorldContextObject
+                PivotTarget.GetLocation(), // const FVector Center
+                16.f,                      // float Radius=100.f
+                8,                         // int32 Segments=12
+                FLinearColor::Green,       // FLinearColor LineColor = FLinearColor::White
+                0.f,                       // float Duration=0.f
+                0.5f                       // float Thickness = 0.f
             );
             UKismetSystemLibrary::DrawDebugSphere(
-                this,                                    // const UObject* WorldContextObject
-                SmoothedPivotTarget.GetLocation(),       // const FVector Center
-                16.f,                                    // float Radius=100.f
-                8,                                       // int32 Segments=12
-                FLinearColor{1.f, 0.166667f, 0.f, 1.f},  // FLinearColor LineColor = FLinearColor::White
-                0.f,                                     // float Duration=0.f
-                0.5f                                     // float Thickness = 0.f
+                this,                                   // const UObject* WorldContextObject
+                SmoothedPivotTarget.GetLocation(),      // const FVector Center
+                16.f,                                   // float Radius=100.f
+                8,                                      // int32 Segments=12
+                FLinearColor{1.f, 0.166667f, 0.f, 1.f}, // FLinearColor LineColor = FLinearColor::White
+                0.f,                                    // float Duration=0.f
+                0.5f                                    // float Thickness = 0.f
             );
             UKismetSystemLibrary::DrawDebugSphere(
-                this,                                    // const UObject* WorldContextObject
-                PivotLocation,                           // const FVector Center
-                16.f,                                    // float Radius=100.f
-                8,                                       // int32 Segments=12
-                FLinearColor{0.f, 0.666667f, 1.f, 1.f},  // FLinearColor LineColor = FLinearColor::White
-                0.f,                                     // float Duration=0.f
-                0.5f                                     // float Thickness = 0.f
+                this,                                   // const UObject* WorldContextObject
+                PivotLocation,                          // const FVector Center
+                16.f,                                   // float Radius=100.f
+                8,                                      // int32 Segments=12
+                FLinearColor{0.f, 0.666667f, 1.f, 1.f}, // FLinearColor LineColor = FLinearColor::White
+                0.f,                                    // float Duration=0.f
+                0.5f                                    // float Thickness = 0.f
             );
             UKismetSystemLibrary::DrawDebugLine(
-                this,                                    // const UObject* WorldContextObject
-                SmoothedPivotTarget.GetLocation(),       // const FVector LineStart
-                PivotTarget.GetLocation(),               // const FVector LineEnd
-                FLinearColor{1.f, 0.166667f, 0.f, 1.f},  // FLinearColor LineColor
-                0.f,                                     // float Duration=0.f
-                1.f                                      // float Thickness = 0.f
+                this,                                   // const UObject* WorldContextObject
+                SmoothedPivotTarget.GetLocation(),      // const FVector LineStart
+                PivotTarget.GetLocation(),              // const FVector LineEnd
+                FLinearColor{1.f, 0.166667f, 0.f, 1.f}, // FLinearColor LineColor
+                0.f,                                    // float Duration=0.f
+                1.f                                     // float Thickness = 0.f
             );
             UKismetSystemLibrary::DrawDebugLine(
-                this,                                    // const UObject* WorldContextObject
-                PivotLocation,                           // const FVector LineStart
-                SmoothedPivotTarget.GetLocation(),       // const FVector LineEnd
-                FLinearColor{0.f, 0.666667f, 1.f, 1.f},  // FLinearColor LineColor
-                0.f,                                     // float Duration=0.f
-                1.f                                      // float Thickness = 0.f
+                this,                                   // const UObject* WorldContextObject
+                PivotLocation,                          // const FVector LineStart
+                SmoothedPivotTarget.GetLocation(),      // const FVector LineEnd
+                FLinearColor{0.f, 0.666667f, 1.f, 1.f}, // FLinearColor LineColor
+                0.f,                                    // float Duration=0.f
+                1.f                                     // float Thickness = 0.f
             );
         }
     }
@@ -191,14 +191,14 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
 
     OutLocation = L_TransformResult.GetLocation();
     OutRotation = L_TransformResult.GetRotation().Rotator();
-    OutFOV = UKismetMathLibrary::Lerp(TPFOV, FPFOV, GetCameraBehaviorParam(FName("Weight_FirstPerson")));
+    OutFOV      = UKismetMathLibrary::Lerp(TPFOV, FPFOV, GetCameraBehaviorParam(FName("Weight_FirstPerson")));
 }
 
 FVector AALSPlayerCameraManager::CalculateAxisIndependentLag(FVector CurrentLocation, FVector TargetLocation, FRotator CameraRotation, FVector LagSpeeds) {
     FRotator CameraRotationYaw = {0.f, 0.f, CameraRotation.Yaw};
 
-    FVector Vector1 = UKismetMathLibrary::LessLess_VectorRotator(CurrentLocation, CameraRotationYaw);
-    FVector Vector2 = UKismetMathLibrary::LessLess_VectorRotator(TargetLocation, CameraRotationYaw);
+    FVector Vector1         = UKismetMathLibrary::LessLess_VectorRotator(CurrentLocation, CameraRotationYaw);
+    FVector Vector2         = UKismetMathLibrary::LessLess_VectorRotator(TargetLocation, CameraRotationYaw);
     float WorldDeltaSeconds = UGameplayStatics::GetWorldDeltaSeconds(this);
 
     float X = UKismetMathLibrary::FInterpTo(Vector1.X, Vector2.X, WorldDeltaSeconds, LagSpeeds.X);

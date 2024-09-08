@@ -2,7 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "AnimationModifier.h"
-#include "ALS/Data/Structs.h"
+#include "ALS/Data/ALSStructs.h"
 #include "CreateCurves.generated.h"
 
 /**

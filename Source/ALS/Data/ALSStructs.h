@@ -2,8 +2,8 @@
 
 #include "Curves/CurveVector.h"
 #include "Engine/DataTable.h"
-#include "ALS/Data/Enums.h"
-#include "Structs.generated.h"
+#include "ALS/Data/ALSEnums.h"
+#include "ALSStructs.generated.h"
 
 USTRUCT(BlueprintType)
 struct FALSComponentAndTransform {

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ALS/Characters/BaseCharacter.h"
-#include "AnimManCharacter.generated.h"
+#include "ALS/Characters/ALSBaseCharacter.h"
+#include "ALSAnimManCharacter.generated.h"
 
 /**
  * IMPORTANT!!!
@@ -30,11 +30,11 @@
  *   - RagdollEnd
  */
 UCLASS()
-class ALS_API AAnimManCharacter : public ABaseCharacter {
+class ALS_API AALSAnimManCharacter : public AALSBaseCharacter {
     GENERATED_BODY()
 
    public:
-    AAnimManCharacter();
+    AALSAnimManCharacter();
     virtual void OnConstruction(const FTransform& Transform) override;
     virtual void Tick(float DeltaTime) override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

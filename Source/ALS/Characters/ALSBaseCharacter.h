@@ -4,12 +4,12 @@
 #include "GameFramework/Character.h"
 #include "ALS/Interfaces/ALSCharacter.h"
 #include "ALS/Interfaces/ALSCamera.h"
-#include "ALS/Data/Enums.h"
-#include "ALS/Data/Structs.h"
+#include "ALS/Data/ALSEnums.h"
+#include "ALS/Data/ALSStructs.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "Engine/DataTable.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "BaseCharacter.generated.h"
+#include "ALSBaseCharacter.generated.h"
 
 class UTimelineComponent;
 
@@ -20,11 +20,11 @@ class UTimelineComponent;
  * The most important thing is to make sure you are updating the correct Character Information in the interface to allow the AnimBP to function correctly.
  */
 UCLASS()
-class ALS_API ABaseCharacter : public ACharacter, public IALSCharacter, public IALSCamera {
+class ALS_API AALSBaseCharacter : public ACharacter, public IALSCharacter, public IALSCamera {
     GENERATED_BODY()
 
    public:
-    ABaseCharacter();
+    AALSBaseCharacter();
     virtual void Tick(float DeltaTime) override;
     virtual void BeginPlay() override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
