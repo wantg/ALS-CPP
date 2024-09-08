@@ -34,7 +34,7 @@ class ALS_API AAnimManCharacter : public ABaseCharacter {
     GENERATED_BODY()
 
    public:
-    AAnimManCharacter(const FObjectInitializer& ObjectInitializer);
+    AAnimManCharacter();
     virtual void OnConstruction(const FTransform& Transform) override;
     virtual void Tick(float DeltaTime) override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

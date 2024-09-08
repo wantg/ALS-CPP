@@ -24,7 +24,7 @@ class ALS_API ABaseCharacter : public ACharacter, public IALSCharacter, public I
     GENERATED_BODY()
 
    public:
-    ABaseCharacter(const FObjectInitializer& ObjectInitializer);
+    ABaseCharacter();
     virtual void Tick(float DeltaTime) override;
     virtual void BeginPlay() override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

@@ -7,7 +7,7 @@
 #include "ALS/Animations/BowAnim.h"
 #include "Kismet/KismetMathLibrary.h"
 
-AAnimManCharacter::AAnimManCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+AAnimManCharacter::AAnimManCharacter() {
     // Components
     GetCapsuleComponent()->SetCapsuleRadius(35.f);
     GetMesh()->SetRelativeRotation(FRotator{0.000041f, -89.999901f, 0.f});

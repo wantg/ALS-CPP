@@ -1,5 +1,4 @@
 #include "ALS/Characters/BaseCharacter.h"
-#include "ALS/Components/ALSCharacterMovementComponent.h"
 #include "NavAreas/NavArea_Obstacle.h"
 #include "ALS/Characters/AI/ALSAIController.h"
 #include "Components/CapsuleComponent.h"
@@ -9,8 +8,7 @@
 #include "ALS/Interfaces/ALSAnimation.h"
 #include "ALS/Libraries/ALSMacroLibrary.h"
 
-ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer)
-    : Super(ObjectInitializer.SetDefaultSubobjectClass<UALSCharacterMovementComponent>(ACharacter::CharacterMovementComponentName)) {
+ABaseCharacter::ABaseCharacter() {
     PrimaryActorTick.bCanEverTick = true;
 
     GetCapsuleComponent()->SetCollisionProfileName(FName("ALS_Character"));
@@ -47,6 +45,10 @@ ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer)
     GetCharacterMovement()->AirControl = 0.15f;
     GetCharacterMovement()->NavAgentProps.bCanCrouch = true;
     GetCharacterMovement()->NavAgentProps.bCanFly = true;
+    
+    if (FProperty* Property = GetCharacterMovement()->GetClass()->FindPropertyByName(FName("bUseAccelerationForPaths"))) {
+        if (uint8* Value = Property->ContainerPtrToValuePtr<uint8>(GetCharacterMovement())) *Value += 2;
+    }
 
     bUseControllerRotationYaw = false;
     AIControllerClass = AALSAIController::StaticClass();
