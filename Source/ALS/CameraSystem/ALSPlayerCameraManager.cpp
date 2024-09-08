@@ -93,7 +93,7 @@ void AALSPlayerCameraManager::CustomCameraBehavior(FVector& OutLocation, FRotato
         TEnumAsByte<ETraceTypeQuery> TraceChannel;
         ALSCamera->Get3PTraceParams(TraceOrigin, TraceRadius, TraceChannel);
 
-        TEnumAsByte<EDrawDebugTrace::Type> DebugType;
+        TEnumAsByte<EDrawDebugTrace::Type> DebugType = EDrawDebugTrace::Type::None;
         GetDebugTraceType(EDrawDebugTrace::Type::ForOneFrame, DebugType);
         TArray<AActor*> ActorsToIgnore;
         FHitResult OutHit;
