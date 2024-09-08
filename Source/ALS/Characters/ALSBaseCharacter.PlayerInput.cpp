@@ -6,6 +6,44 @@
 void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+    UPlayerInput* PlayerInput = Cast<APlayerController>(Controller)->PlayerInput;
+
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"JumpAction", /*           */ EKeys::SpaceBar});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"JumpAction", /*           */ EKeys::Gamepad_FaceButton_Bottom});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"StanceAction", /*         */ EKeys::LeftAlt});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SprintAction", /*         */ EKeys::LeftShift});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"StanceAction", /*         */ EKeys::Gamepad_FaceButton_Right});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SprintAction", /*         */ EKeys::Gamepad_LeftThumbstick});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"WalkAction", /*           */ EKeys::LeftControl});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"WalkAction", /*           */ EKeys::Gamepad_RightShoulder});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"AimAction", /*            */ EKeys::RightMouseButton});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"AimAction", /*            */ EKeys::Gamepad_LeftTrigger});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SelectRotationMode_1", /* */ EKeys::One});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SelectRotationMode_2", /* */ EKeys::Two});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SelectRotationMode_1", /* */ EKeys::Gamepad_DPad_Left});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"SelectRotationMode_2", /* */ EKeys::Gamepad_DPad_Right});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CameraAction", /*         */ EKeys::C});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CameraAction", /*         */ EKeys::Gamepad_RightThumbstick});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"RagdollAction", /*        */ EKeys::X});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"RagdollAction", /*        */ EKeys::Gamepad_Special_Left});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CycleOverlayUp", /*       */ EKeys::MouseScrollUp});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CycleOverlayDown", /*     */ EKeys::MouseScrollDown});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CycleOverlayUp", /*       */ EKeys::Gamepad_DPad_Up});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"CycleOverlayDown", /*     */ EKeys::Gamepad_DPad_Down});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"OpenOverlayMenu", /*      */ EKeys::Q});
+    PlayerInput->AddActionMapping(FInputActionKeyMapping{"OpenOverlayMenu", /*      */ EKeys::Gamepad_LeftShoulder});
+
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveForward/Backwards", /* */ EKeys::W, /*              */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveRight/Left", /*        */ EKeys::D, /*              */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("LookUp/Down", /*           */ EKeys::MouseY, /*         */ -1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("LookLeft/Right", /*        */ EKeys::MouseX, /*         */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveForward/Backwards", /* */ EKeys::S, /*              */ -1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveRight/Left", /*        */ EKeys::A, /*              */ -1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveForward/Backwards", /* */ EKeys::Gamepad_LeftY, /*  */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("MoveRight/Left", /*        */ EKeys::Gamepad_LeftX, /*  */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("LookUp/Down", /*           */ EKeys::Gamepad_RightY, /* */ 1.0f));
+    PlayerInput->AddAxisMapping(FInputAxisKeyMapping("LookLeft/Right", /*        */ EKeys::Gamepad_RightX, /* */ 1.0f));
+
     // Movement Input
     FInputAxisBinding MoveForwardBackwardsAxisBinding("MoveForward/Backwards");
     MoveForwardBackwardsAxisBinding.AxisDelegate.GetDelegateForManualSet().BindLambda([this](float Scale) {
@@ -41,24 +79,24 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
     AddInputActionBindingLambda(PlayerInputComponent, "JumpAction", IE_Pressed, [this]() {
         if (MovementAction == EALSMovementAction::EAMA_None) {
             switch (MovementState) {
-                case EALSMovementState::EAMS_Grounded:
-                    if (!HasMovementInput || !MantleCheck(GroundedTraceSettings, EDrawDebugTrace::Type::ForDuration)) {
-                        switch (Stance) {
-                            case EALSStance::EAS_Standing:
-                                Jump();
-                                break;
-                            case EALSStance::EAS_Crouching:
-                                UnCrouch();
-                                break;
-                        }
+            case EALSMovementState::EAMS_Grounded:
+                if (!HasMovementInput || !MantleCheck(GroundedTraceSettings, EDrawDebugTrace::Type::ForDuration)) {
+                    switch (Stance) {
+                    case EALSStance::EAS_Standing:
+                        Jump();
+                        break;
+                    case EALSStance::EAS_Crouching:
+                        UnCrouch();
+                        break;
                     }
-                    break;
-                case EALSMovementState::EAMS_InAir:
-                    MantleCheck(FallingTraceSettings, EDrawDebugTrace::Type::ForDuration);
-                    break;
-                case EALSMovementState::EAMS_Ragdoll:
-                    RagdollEnd();
-                    break;
+                }
+                break;
+            case EALSMovementState::EAMS_InAir:
+                MantleCheck(FallingTraceSettings, EDrawDebugTrace::Type::ForDuration);
+                break;
+            case EALSMovementState::EAMS_Ragdoll:
+                RagdollEnd();
+                break;
             }
         }
     });
@@ -71,41 +109,41 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
             RetriggerDelay(0.3f, TEXT("ResetStancePressedTimes"));
             if (StancePressedTimes == 1) {
                 switch (MovementState) {
-                    case EALSMovementState::EAMS_Grounded:
-                        switch (Stance) {
-                            case EALSStance::EAS_Standing:
-                                DesiredStance = EALSStance::EAS_Crouching;
-                                Crouch();
-                                break;
-                            case EALSStance::EAS_Crouching:
-                                DesiredStance = EALSStance::EAS_Standing;
-                                UnCrouch();
-                                break;
-                        }
+                case EALSMovementState::EAMS_Grounded:
+                    switch (Stance) {
+                    case EALSStance::EAS_Standing:
+                        DesiredStance = EALSStance::EAS_Crouching;
+                        Crouch();
                         break;
-                    case EALSMovementState::EAMS_InAir:
-                        BreakFall = true;
-                        RetriggerDelay(0.4f, TEXT("SetBreakFallToFlase"));
+                    case EALSStance::EAS_Crouching:
+                        DesiredStance = EALSStance::EAS_Standing;
+                        UnCrouch();
                         break;
+                    }
+                    break;
+                case EALSMovementState::EAMS_InAir:
+                    BreakFall = true;
+                    RetriggerDelay(0.4f, TEXT("SetBreakFallToFlase"));
+                    break;
                 }
                 return;
             }
             if (MainAnimInstance) {
                 // Roll: Simply play a Root Motion Montage.
                 MainAnimInstance->Montage_Play(
-                    GetRollAnimation(),                     // UAnimMontage* MontageToPlay
-                    1.15,                                   // float InPlayRate = 1.f
-                    EMontagePlayReturnType::MontageLength,  // EMontagePlayReturnType ReturnValueType = EMontagePlayReturnType::MontageLength
-                    0.f,                                    // float InTimeToStartMontageAt=0.f
-                    true                                    // bool bStopAllMontages = true
+                    GetRollAnimation(),                    // UAnimMontage* MontageToPlay
+                    1.15,                                  // float InPlayRate = 1.f
+                    EMontagePlayReturnType::MontageLength, // EMontagePlayReturnType ReturnValueType = EMontagePlayReturnType::MontageLength
+                    0.f,                                   // float InTimeToStartMontageAt=0.f
+                    true                                   // bool bStopAllMontages = true
                 );
                 switch (Stance) {
-                    case EALSStance::EAS_Standing:
-                        DesiredStance = EALSStance::EAS_Crouching;
-                        break;
-                    case EALSStance::EAS_Crouching:
-                        DesiredStance = EALSStance::EAS_Standing;
-                        break;
+                case EALSStance::EAS_Standing:
+                    DesiredStance = EALSStance::EAS_Crouching;
+                    break;
+                case EALSStance::EAS_Crouching:
+                    DesiredStance = EALSStance::EAS_Standing;
+                    break;
                 }
             }
         }
@@ -114,12 +152,12 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
     // Gait Actions Type 1: Press "Walk Action" to toggle walking/running, hold "Sprint Action" to sprint.
     AddInputActionBindingLambda(PlayerInputComponent, "WalkAction", IE_Pressed, [this]() {
         switch (DesiredGait) {
-            case EALSGait::EAG_Walking:
-                DesiredGait = EALSGait::EAG_Running;
-                break;
-            case EALSGait::EAG_Running:
-                DesiredGait = EALSGait::EAG_Walking;
-                break;
+        case EALSGait::EAG_Walking:
+            DesiredGait = EALSGait::EAG_Running;
+            break;
+        case EALSGait::EAG_Running:
+            DesiredGait = EALSGait::EAG_Walking;
+            break;
         }
     });
 
@@ -171,12 +209,12 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
     AddInputActionBindingLambda(PlayerInputComponent, "AimAction", IE_Released, [this]() {
         switch (ViewMode) {
-            case EALSViewMode::EAVM_ThirdPerson:
-                SetRotationMode(DesiredRotationMode);
-                break;
-            case EALSViewMode::EAVM_FirstPerson:
-                SetRotationMode(EALSRotationMode::EARM_LookingDirection);
-                break;
+        case EALSViewMode::EAVM_ThirdPerson:
+            SetRotationMode(DesiredRotationMode);
+            break;
+        case EALSViewMode::EAVM_FirstPerson:
+            SetRotationMode(EALSRotationMode::EARM_LookingDirection);
+            break;
         }
     });
 
@@ -184,7 +222,7 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
     // tap to swap shoulders.
     FInputActionBinding CameraActionPressed("CameraAction", IE_Pressed);
     CameraActionPressed.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { PerformCameraAction(IE_Pressed); });
-    PlayerInputComponent->AddActionBinding(CameraActionPressed);    
+    PlayerInputComponent->AddActionBinding(CameraActionPressed);
 
     FInputActionBinding CameraActionReleased("CameraAction", IE_Released);
     CameraActionReleased.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { PerformCameraAction(IE_Released); });
@@ -193,15 +231,15 @@ void AALSBaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
     // Ragdoll Action: Press "Ragdoll Action" to toggle the ragdoll state on or off.
     AddInputActionBindingLambda(PlayerInputComponent, "RagdollAction", IE_Pressed, [this]() {
         switch (MovementState) {
-            case EALSMovementState::EAMS_None:
-            case EALSMovementState::EAMS_Grounded:
-            case EALSMovementState::EAMS_InAir:
-            case EALSMovementState::EAMS_Mantling:
-                RagdollStart();
-                break;
-            case EALSMovementState::EAMS_Ragdoll:
-                RagdollEnd();
-                break;
+        case EALSMovementState::EAMS_None:
+        case EALSMovementState::EAMS_Grounded:
+        case EALSMovementState::EAMS_InAir:
+        case EALSMovementState::EAMS_Mantling:
+            RagdollStart();
+            break;
+        case EALSMovementState::EAMS_Ragdoll:
+            RagdollEnd();
+            break;
         }
     });
 }
@@ -216,14 +254,14 @@ void AALSBaseCharacter::PlayerMovementInput(bool IsForwardAxis) {
     float X;
     FixDiagonalGamepadValues(GetInputAxisValue(FName("MoveForward/Backwards")), GetInputAxisValue(FName("MoveRight/Left")), Y, X);
     switch (MovementState) {
-        case EALSMovementState::EAMS_Grounded:
-        case EALSMovementState::EAMS_InAir:
-            if (IsForwardAxis) {
-                AddMovementInput(ControlForwardVector, Y);
-            } else {
-                AddMovementInput(ControlRightVector, X);
-            }
-            break;
+    case EALSMovementState::EAMS_Grounded:
+    case EALSMovementState::EAMS_InAir:
+        if (IsForwardAxis) {
+            AddMovementInput(ControlForwardVector, Y);
+        } else {
+            AddMovementInput(ControlRightVector, X);
+        }
+        break;
     }
 }
 
@@ -232,16 +270,16 @@ FVector AALSBaseCharacter::GetPlayerMovementInput() {
     FVector ControlRightVector;
     GetControlForwardRightVector(ControlForwardVector, ControlRightVector);
     float MoveForwardBackwardsScale = GetInputAxisValue(FName("MoveForward/Backwards"));
-    float MoveRightLeftScale = GetInputAxisValue(FName("MoveRight/Left"));
+    float MoveRightLeftScale        = GetInputAxisValue(FName("MoveRight/Left"));
     return UKismetMathLibrary::Normal(
         MoveForwardBackwardsScale * ControlForwardVector + MoveRightLeftScale * ControlRightVector, 0.0001f);
 }
 
 void AALSBaseCharacter::FixDiagonalGamepadValues(float InY, float InX, float& OutY, float& OutX) {
     float RangeClampedX = UKismetMathLibrary::MapRangeClamped(FMath::Abs(InX), 0.0, 0.6, 1.0, 1.2);
-    OutY = UKismetMathLibrary::FClamp(InY * RangeClampedX, -1.0, 1.0);
+    OutY                = UKismetMathLibrary::FClamp(InY * RangeClampedX, -1.0, 1.0);
     float RangeClampedY = UKismetMathLibrary::MapRangeClamped(FMath::Abs(InY), 0.0, 0.6, 1.0, 1.2);
-    OutX = UKismetMathLibrary::FClamp(InX * RangeClampedY, -1.0, 1.0);
+    OutX                = UKismetMathLibrary::FClamp(InX * RangeClampedY, -1.0, 1.0);
 }
 
 void AALSBaseCharacter::PerformCameraAction(EInputEvent InputEvent) {
@@ -250,9 +288,9 @@ void AALSBaseCharacter::PerformCameraAction(EInputEvent InputEvent) {
         return;
     }
     TArray<FKey> Keys;
-    TArray<FInputActionKeyMapping> OutMappings;
-    UInputSettings::GetInputSettings()->GetActionMappingByName(FName("CameraAction"), OutMappings);
-    for (FInputActionKeyMapping InputActionKeyMapping : OutMappings) {
+    UPlayerInput* PlayerInput                      = Cast<APlayerController>(Controller)->PlayerInput;
+    TArray<FInputActionKeyMapping> MatchedMappings = PlayerInput->GetKeysForAction(FName("CameraAction"));
+    for (FInputActionKeyMapping& InputActionKeyMapping : MatchedMappings) {
         Keys.Add(InputActionKeyMapping.Key);
     }
     if (InputEvent == IE_Pressed) {
