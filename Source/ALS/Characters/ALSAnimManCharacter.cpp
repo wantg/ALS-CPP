@@ -103,7 +103,9 @@ void AALSAnimManCharacter::Tick(float DeltaTime) {
 
 void AALSAnimManCharacter::OnConstruction(const FTransform& Transform) {
     Super::OnConstruction(Transform);
-    BodyMesh->SetLeaderPoseComponent(GetMesh(), false, false);
+    if (USkinnedMeshComponent* LeaderPoseComponent = GetBodyMeshLeaderPoseComponent()) {
+        BodyMesh->SetLeaderPoseComponent(LeaderPoseComponent);
+    }
     SetDynamicMaterials();
     SetResetColors();
 }

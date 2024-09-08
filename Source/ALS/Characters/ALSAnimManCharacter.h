@@ -38,6 +38,7 @@ class ALS_API AALSAnimManCharacter : public AALSBaseCharacter {
     virtual void OnConstruction(const FTransform& Transform) override;
     virtual void Tick(float DeltaTime) override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    virtual USkinnedMeshComponent* GetBodyMeshLeaderPoseComponent() { return GetMesh(); }
 
     // ================================================================================
     // IALSCamera
