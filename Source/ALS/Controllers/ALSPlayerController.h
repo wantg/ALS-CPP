@@ -3,7 +3,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "ALS/Interfaces/ALSController.h"
-#include "ALS/Misc/InputMapping.h"
 #include "ALSPlayerController.generated.h"
 
 /**

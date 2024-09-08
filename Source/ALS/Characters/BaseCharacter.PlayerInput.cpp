@@ -1,5 +1,4 @@
 #include "ALS/Characters/BaseCharacter.h"
-#include "ALS/Misc/InputMapping.h"
 #include "GameFramework/InputSettings.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "ALS/Libraries/ALSMacroLibrary.h"
@@ -183,8 +182,13 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
     // Camera Action: Hold "Camera Action" to toggle Third / First Person,
     // tap to swap shoulders.
-    PlayerInputComponent->BindAction<FBindInputMappingWithInputEventDelegate>("CameraAction", IE_Pressed, this, &ABaseCharacter::PerformCameraAction, IE_Pressed);
-    PlayerInputComponent->BindAction<FBindInputMappingWithInputEventDelegate>("CameraAction", IE_Released, this, &ABaseCharacter::PerformCameraAction, IE_Released);
+    FInputActionBinding CameraActionPressed("CameraAction", IE_Pressed);
+    CameraActionPressed.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { PerformCameraAction(IE_Pressed); });
+    PlayerInputComponent->AddActionBinding(CameraActionPressed);    
+
+    FInputActionBinding CameraActionReleased("CameraAction", IE_Released);
+    CameraActionReleased.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { PerformCameraAction(IE_Released); });
+    PlayerInputComponent->AddActionBinding(CameraActionReleased);
 
     // Ragdoll Action: Press "Ragdoll Action" to toggle the ragdoll state on or off.
     AddInputActionBindingLambda(PlayerInputComponent, "RagdollAction", IE_Pressed, [this]() {

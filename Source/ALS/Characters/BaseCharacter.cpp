@@ -1,7 +1,6 @@
 #include "ALS/Characters/BaseCharacter.h"
 #include "ALS/Components/ALSCharacterMovementComponent.h"
 #include "NavAreas/NavArea_Obstacle.h"
-#include "ClothingSimulationFactoryNv.h"
 #include "ALS/Characters/AI/ALSAIController.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/TimelineComponent.h"

@@ -13,7 +13,7 @@ struct FALSComponentAndTransform {
     FTransform Transform;
 
     UPROPERTY(BlueprintReadWrite)
-    UPrimitiveComponent* Component;
+    UPrimitiveComponent* Component = nullptr;
 };
 
 USTRUCT(BlueprintType)
@@ -72,7 +72,7 @@ struct FDynamicMontageParams {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UAnimSequenceBase* Animation;
+    UAnimSequenceBase* Animation = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     float BlendInTime = 0.f;
@@ -103,10 +103,10 @@ struct FMantleAsset {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UAnimMontage* AnimMontage;
+    UAnimMontage* AnimMontage = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
-    UCurveVector* PositionCorrectionCurve;
+    UCurveVector* PositionCorrectionCurve = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     FVector StartingOffset = FVector::ZeroVector;
@@ -135,10 +135,10 @@ struct FMantleParams {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UAnimMontage* AnimMontage;
+    UAnimMontage* AnimMontage = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
-    UCurveVector* PositionCorrectionCurve;
+    UCurveVector* PositionCorrectionCurve = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     float StartingPosition = 0.f;
@@ -184,10 +184,10 @@ struct FMovementSettings {
     float SprintSpeed = 0.f;
 
     UPROPERTY(BlueprintReadWrite)
-    UCurveVector* MovementCurve;
+    UCurveVector* MovementCurve = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
-    UCurveFloat* RotationRateCurve;
+    UCurveFloat* RotationRateCurve = nullptr;
 };
 
 USTRUCT(BlueprintType)
@@ -220,7 +220,7 @@ struct FRotateInPlaceAsset {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UAnimSequenceBase* Animation;
+    UAnimSequenceBase* Animation = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     FName SlotName;
@@ -243,7 +243,7 @@ struct FTurnInPlaceAsset {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UAnimSequenceBase* Animation;
+    UAnimSequenceBase* Animation = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     float AnimatedAngle = 0.f;
@@ -280,7 +280,7 @@ struct FOverlayStateButtonParams {
     GENERATED_BODY()
 
     UPROPERTY(BlueprintReadWrite)
-    UUserWidget* Widget;
+    UUserWidget* Widget = nullptr;
 
     UPROPERTY(BlueprintReadWrite)
     EALSOverlayState State = EALSOverlayState::EAOS_Default;

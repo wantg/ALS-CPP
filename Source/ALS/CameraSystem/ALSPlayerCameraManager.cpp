@@ -1,5 +1,4 @@
 #include "ALS/CameraSystem/ALSPlayerCameraManager.h"
-#include "ClothingSimulationFactoryNv.h"
 #include "ALS/Animations/ALSPlayerCameraBehavior.h"
 #include "ALS/Interfaces/ALSCamera.h"
 #include "ALS/Interfaces/ALSController.h"

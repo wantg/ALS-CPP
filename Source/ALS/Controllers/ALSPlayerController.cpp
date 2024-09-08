@@ -59,8 +59,15 @@ void AALSPlayerController::OnPossess(APawn* NewPawn) {
     NewPawn->InputComponent->BindAction("ZKeyPressed", IE_Pressed, this, &AALSPlayerController::ZKeyPressed);
     NewPawn->InputComponent->BindAction("CommaKeyPressed", IE_Pressed, this, &AALSPlayerController::CommaKeyPressed);
     NewPawn->InputComponent->BindAction("PeriodKeyPressed", IE_Pressed, this, &AALSPlayerController::PeriodKeyPressed);
-    NewPawn->InputComponent->BindAction<FBindInputMappingWithInputEventDelegate>("OpenOverlayMenu", IE_Pressed, this, &AALSPlayerController::OpenOverlayMenu, IE_Pressed);
-    NewPawn->InputComponent->BindAction<FBindInputMappingWithInputEventDelegate>("OpenOverlayMenu", IE_Released, this, &AALSPlayerController::OpenOverlayMenu, IE_Released);
+    
+    FInputActionBinding OpenOverlayMenuPressed("OpenOverlayMenu", IE_Pressed);
+    OpenOverlayMenuPressed.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { OpenOverlayMenu(IE_Pressed); });
+    NewPawn->InputComponent->AddActionBinding(OpenOverlayMenuPressed);
+
+    FInputActionBinding OpenOverlayMenuReleased("OpenOverlayMenu", IE_Released);
+    OpenOverlayMenuReleased.ActionDelegate.GetDelegateForManualSet().BindLambda([&]() { OpenOverlayMenu(IE_Released); });
+    NewPawn->InputComponent->AddActionBinding(OpenOverlayMenuReleased);
+    
     NewPawn->InputComponent->BindAction("CycleOverlayUp", IE_Pressed, this, &AALSPlayerController::CycleOverlayUp);
     NewPawn->InputComponent->BindAction("CycleOverlayDown", IE_Pressed, this, &AALSPlayerController::CycleOverlayDown);
 }
