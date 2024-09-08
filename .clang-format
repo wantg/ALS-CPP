@@ -1,0 +1,15 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+# clang-format --dump-config --style="{ BasedOnStyle: Google}" > Google.clang-format
+---
+Language:        Cpp
+# BasedOnStyle:  Google
+
+AccessModifierOffset: -1
+AlignAfterOpenBracket: DontAlign
+AlignConsecutiveAssignments:
+  Enabled:         true
+AllowShortIfStatementsOnASingleLine: WithoutElse
+ColumnLimit:     0
+IndentWidth:     4
+PointerAlignment: Left
+SortIncludes:    Never
